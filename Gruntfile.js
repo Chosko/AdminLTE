@@ -6,7 +6,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     watch: {
       // If any .less file changes in directory "build/less/" run the "less"-task.
-      files: ["build/less/*.less", "build/less/skins/*.less", "dist/js/app.js"],
+      files: ["build/build-less/*.less", "build/build-less/skins/*.less", "build/less/*.less", "build/less/skins/*.less", "dist/js/app.js"],
       tasks: ["less", "uglify"]
     },
     // "less"-task configuration
@@ -20,27 +20,29 @@ module.exports = function (grunt) {
         },
         files: {
           // compilation.css  :  source.less
-          "dist/css/AdminLTE.css": "build/less/AdminLTE.less",
+          "dist/css/AdminLTE.css": "build/build-less/AdminLTE.less",
           // AdminLTE without plugins
-          "dist/css/alt/AdminLTE-without-plugins.css": "build/less/AdminLTE-without-plugins.less",
+          "dist/css/alt/AdminLTE-without-plugins.css": "build/build-less/AdminLTE-without-plugins.less",
           // Separate plugins
           "dist/css/alt/AdminLTE-select2.css": "build/less/select2.less",
           "dist/css/alt/AdminLTE-fullcalendar.css": "build/less/fullcalendar.less",
           "dist/css/alt/AdminLTE-bootstrap-social.css": "build/less/bootstrap-social.less",
           //Non minified skin files
-          "dist/css/skins/skin-blue.css": "build/less/skins/skin-blue.less",
-          "dist/css/skins/skin-black.css": "build/less/skins/skin-black.less",
-          "dist/css/skins/skin-yellow.css": "build/less/skins/skin-yellow.less",
-          "dist/css/skins/skin-green.css": "build/less/skins/skin-green.less",
-          "dist/css/skins/skin-red.css": "build/less/skins/skin-red.less",
-          "dist/css/skins/skin-purple.css": "build/less/skins/skin-purple.less",
-          "dist/css/skins/skin-blue-light.css": "build/less/skins/skin-blue-light.less",
-          "dist/css/skins/skin-black-light.css": "build/less/skins/skin-black-light.less",
-          "dist/css/skins/skin-yellow-light.css": "build/less/skins/skin-yellow-light.less",
-          "dist/css/skins/skin-green-light.css": "build/less/skins/skin-green-light.less",
-          "dist/css/skins/skin-red-light.css": "build/less/skins/skin-red-light.less",
-          "dist/css/skins/skin-purple-light.css": "build/less/skins/skin-purple-light.less",
-          "dist/css/skins/_all-skins.css": "build/less/skins/_all-skins.less"
+          "dist/css/skins/skin-blue.css": "build/build-less/skins/skin-blue.less",
+          "dist/css/skins/skin-black.css": "build/build-less/skins/skin-black.less",
+          "dist/css/skins/skin-yellow.css": "build/build-less/skins/skin-yellow.less",
+          "dist/css/skins/skin-green.css": "build/build-less/skins/skin-green.less",
+          "dist/css/skins/skin-red.css": "build/build-less/skins/skin-red.less",
+          "dist/css/skins/skin-purple.css": "build/build-less/skins/skin-purple.less",
+          "dist/css/skins/skin-blue-light.css": "build/build-less/skins/skin-blue-light.less",
+          "dist/css/skins/skin-black-light.css": "build/build-less/skins/skin-black-light.less",
+          "dist/css/skins/skin-yellow-light.css": "build/build-less/skins/skin-yellow-light.less",
+          "dist/css/skins/skin-green-light.css": "build/build-less/skins/skin-green-light.less",
+          "dist/css/skins/skin-red-light.css": "build/build-less/skins/skin-red-light.less",
+          "dist/css/skins/skin-purple-light.css": "build/build-less/skins/skin-purple-light.less",
+          "dist/css/skins/_all-skins.css": "build/build-less/skins/_all-skins.less",
+          // Bootstrap
+          "bootstrap/css/bootstrap.css": "build/bootstrap-less/mixins.less",  
         }
       },
       // Production compresses version
@@ -51,27 +53,29 @@ module.exports = function (grunt) {
         },
         files: {
           // compilation.css  :  source.less
-          "dist/css/AdminLTE.min.css": "build/less/AdminLTE.less",
+          "dist/css/AdminLTE.min.css": "build/build-less/AdminLTE.less",
           // AdminLTE without plugins
-          "dist/css/alt/AdminLTE-without-plugins.min.css": "build/less/AdminLTE-without-plugins.less",
+          "dist/css/alt/AdminLTE-without-plugins.min.css": "build/build-less/AdminLTE-without-plugins.less",
           // Separate plugins
           "dist/css/alt/AdminLTE-select2.min.css": "build/less/select2.less",
           "dist/css/alt/AdminLTE-fullcalendar.min.css": "build/less/fullcalendar.less",
           "dist/css/alt/AdminLTE-bootstrap-social.min.css": "build/less/bootstrap-social.less",
           // Skins minified
-          "dist/css/skins/skin-blue.min.css": "build/less/skins/skin-blue.less",
-          "dist/css/skins/skin-black.min.css": "build/less/skins/skin-black.less",
-          "dist/css/skins/skin-yellow.min.css": "build/less/skins/skin-yellow.less",
-          "dist/css/skins/skin-green.min.css": "build/less/skins/skin-green.less",
-          "dist/css/skins/skin-red.min.css": "build/less/skins/skin-red.less",
-          "dist/css/skins/skin-purple.min.css": "build/less/skins/skin-purple.less",
-          "dist/css/skins/skin-blue-light.min.css": "build/less/skins/skin-blue-light.less",
-          "dist/css/skins/skin-black-light.min.css": "build/less/skins/skin-black-light.less",
-          "dist/css/skins/skin-yellow-light.min.css": "build/less/skins/skin-yellow-light.less",
-          "dist/css/skins/skin-green-light.min.css": "build/less/skins/skin-green-light.less",
-          "dist/css/skins/skin-red-light.min.css": "build/less/skins/skin-red-light.less",
-          "dist/css/skins/skin-purple-light.min.css": "build/less/skins/skin-purple-light.less",
-          "dist/css/skins/_all-skins.min.css": "build/less/skins/_all-skins.less"
+          "dist/css/skins/skin-blue.min.css": "build/build-less/skins/skin-blue.less",
+          "dist/css/skins/skin-black.min.css": "build/build-less/skins/skin-black.less",
+          "dist/css/skins/skin-yellow.min.css": "build/build-less/skins/skin-yellow.less",
+          "dist/css/skins/skin-green.min.css": "build/build-less/skins/skin-green.less",
+          "dist/css/skins/skin-red.min.css": "build/build-less/skins/skin-red.less",
+          "dist/css/skins/skin-purple.min.css": "build/build-less/skins/skin-purple.less",
+          "dist/css/skins/skin-blue-light.min.css": "build/build-less/skins/skin-blue-light.less",
+          "dist/css/skins/skin-black-light.min.css": "build/build-less/skins/skin-black-light.less",
+          "dist/css/skins/skin-yellow-light.min.css": "build/build-less/skins/skin-yellow-light.less",
+          "dist/css/skins/skin-green-light.min.css": "build/build-less/skins/skin-green-light.less",
+          "dist/css/skins/skin-red-light.min.css": "build/build-less/skins/skin-red-light.less",
+          "dist/css/skins/skin-purple-light.min.css": "build/build-less/skins/skin-purple-light.less",
+          "dist/css/skins/_all-skins.min.css": "build/build-less/skins/_all-skins.less",
+          // Bootstrap
+          "bootstrap/css/bootstrap.css": "build/bootstrap-less/mixins.less",          
         }
       }
     },
